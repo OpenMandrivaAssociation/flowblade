@@ -9,9 +9,9 @@ Url:            https://code.google.com/p/flowblade/
 # hg clone https://code.google.com/p/flowblade/
 Source0:         %{name}-%{version}.tar.gz
 BuildRequires:  desktop-file-utils
-BuildRequires:  pkgconfig(python2)
-BuildRequires:  python2-setuptools
-Requires:       pkgconfig(dbus-python2)
+BuildRequires:  pkgconfig(python)
+BuildRequires:  python-setuptools
+Requires:       pkgconfig(dbus-python)
 Requires:       ffmpeg
 Requires:       frei0r-plugins >= 1.4
 Requires:       ladspa
@@ -20,13 +20,13 @@ Requires:       pkgconfig(cairomm-1.0)
 Requires:       mlt
 Requires:       librsvg2
 Requires:       python2-cairo
-Requires:       gnome-python2
-Requires:       gnome-python2-gnomevfs
+Requires:       gnome-python
+Requires:       gnome-python-gnomevfs
 Requires:       pygtk2
-Requires:       python2egg(pil)
-Requires:       python2-mlt
-Requires:       python2egg(numpy)
-Requires:       python2egg(pyxdg)
+Requires:       pythonegg(pil)
+Requires:       python-mlt
+Requires:       pythonegg(numpy)
+Requires:       pythonegg(pyxdg)
 Requires:       sox
 
 BuildArch:      noarch
@@ -53,15 +53,15 @@ python2 setup.py build
 python2 setup.py install --prefix=%{_prefix} --root=%{buildroot}
 
 mkdir -p %{buildroot}%{_datadir}/locale
-mv %{buildroot}%{py2_puresitedir}/Flowblade/locale/*  %{buildroot}%{_datadir}/locale
+mv %{buildroot}%{py_puresitedir}/Flowblade/locale/*  %{buildroot}%{_datadir}/locale
 find %{buildroot} -type f -name "*.po*" -delete -print
 
 mkdir -p %{buildroot}%{_datadir}/mime/packages
 mv %{buildroot}/usr/lib/mime/packages/flowblade \
   %{buildroot}%{_datadir}/mime/packages/
 
-chmod +x %{buildroot}%{py2_puresitedir}/Flowblade/launch/flowbladebatch \
-  %{buildroot}%{py2_puresitedir}/Flowblade/launch/flowblademedialinker \
+chmod +x %{buildroot}%{py_puresitedir}/Flowblade/launch/flowbladebatch \
+  %{buildroot}%{py_puresitedir}/Flowblade/launch/flowblademedialinker \
   %{buildroot}%{_bindir}/flowblade
 
 chmod -x %{buildroot}%{_datadir}/applications/flowblade.desktop \
@@ -77,6 +77,6 @@ chmod -x %{buildroot}%{_datadir}/applications/flowblade.desktop \
 %{_datadir}/applications/flowblade.desktop
 %{_mandir}/man1/flowblade.1*
 %{_datadir}/pixmaps/flowblade.png
-%{py2_puresitedir}/Flowblade
-%{py2_puresitedir}/flowblade-*.egg-info
+%{py_puresitedir}/Flowblade
+%{py_puresitedir}/flowblade-*.egg-info
 %{_datadir}/mime/packages/*
