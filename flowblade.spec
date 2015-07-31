@@ -47,10 +47,10 @@ sed -i 's|%{_datadir}/pyshared|%{py_puresitedir}|' flowblade
 sed -i "s|respaths.LOCALE_PATH|'%{_datadir}/locale'|g" Flowblade/translations.py
 
 %build
-python2 setup.py build
+python setup.py build
 
 %install
-python2 setup.py install --prefix=%{_prefix} --root=%{buildroot}
+python setup.py install --prefix=%{_prefix} --root=%{buildroot}
 
 mkdir -p %{buildroot}%{_datadir}/locale
 mv %{buildroot}%{py_puresitedir}/Flowblade/locale/*  %{buildroot}%{_datadir}/locale
