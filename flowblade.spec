@@ -23,10 +23,10 @@ Requires:       python2-cairo
 Requires:       gnome-python
 Requires:       gnome-python-gnomevfs
 Requires:       pygtk2
-Requires:       pythonegg(pil)
+Requires:       python-pillow
 Requires:       python-mlt
-Requires:       pythonegg(numpy)
-Requires:       pythonegg(pyxdg)
+Requires:       python-numpy
+Requires:       python3-xdg
 Requires:       sox
 
 BuildArch:      noarch
