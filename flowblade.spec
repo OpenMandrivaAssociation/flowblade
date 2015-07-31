@@ -9,7 +9,7 @@ Url:            https://code.google.com/p/flowblade/
 # hg clone https://code.google.com/p/flowblade/
 Source0:         %{name}-%{version}.tar.gz
 BuildRequires:  desktop-file-utils
-BuildRequires:  pkgconfig(python)
+BuildRequires:  python3-devel
 BuildRequires:  python-setuptools
 Requires:       pkgconfig(dbus-python)
 Requires:       ffmpeg
@@ -43,7 +43,7 @@ Flowblade provides powerful tools to mix and filter video and audio.
 %prep
 %setup -q
 
-sed -i 's|%{_datadir}/pyshared|%{py2_puresitedir}|' flowblade
+sed -i 's|%{_datadir}/pyshared|%{py_puresitedir}|' flowblade
 sed -i "s|respaths.LOCALE_PATH|'%{_datadir}/locale'|g" Flowblade/translations.py
 
 %build
