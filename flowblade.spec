@@ -13,7 +13,7 @@ BuildRequires:  pkgconfig(python)
 BuildRequires:  pythonegg(setuptools)
 Requires:       pkgconfig(dbus-python)
 Requires:       ffmpeg
-Requires:       frei0r-plugins >= 1.4
+Requires:       frei0r-plugins 
 Requires:       ladspa
 Requires:       swh-plugins
 Requires:       pkgconfig(cairomm-1.0)
