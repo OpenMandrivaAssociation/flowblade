@@ -10,7 +10,7 @@ Url:            https://code.google.com/p/flowblade/
 Source0:         %{name}-%{version}.tar.gz
 BuildRequires:  desktop-file-utils
 BuildRequires:  pkgconfig(python2)
-BuildRequires:  python2egg(setuptools)
+BuildRequires:  python2-setuptools
 Requires:       pkgconfig(dbus-python2)
 Requires:       ffmpeg
 Requires:       frei0r-plugins >= 1.4
