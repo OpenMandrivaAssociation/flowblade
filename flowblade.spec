@@ -21,7 +21,7 @@ Requires:       mlt
 Requires:       librsvg2
 Requires:       python2-cairo
 Requires:       gnome-python
-Requires:       gnome-python-gnomevfs
+#Requires:       gnome-python-gnomevfs
 Requires:       pygtk2
 Requires:       python-pillow
 Requires:       python-mlt
