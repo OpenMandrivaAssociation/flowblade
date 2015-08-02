@@ -23,7 +23,7 @@ Requires:       python2-cairo
 Requires:       gnome-python2
 Requires:       gnome-python2-gnomevfs
 Requires:       pygtk2
-Requires:       python-pillow
+Requires:       python2-imaging
 Requires:       python-mlt
 Requires:       python-numpy
 Requires:       sox
