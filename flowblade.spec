@@ -20,13 +20,12 @@ Requires:       pkgconfig(cairomm-1.0)
 Requires:       mlt
 Requires:       librsvg2
 Requires:       python2-cairo
-Requires:       gnome-python
-#Requires:       gnome-python-gnomevfs
+Requires:       gnome-python2
+Requires:       gnome-python2-gnomevfs
 Requires:       pygtk2
 Requires:       python-pillow
 Requires:       python-mlt
 Requires:       python-numpy
-Requires:       python3-xdg
 Requires:       sox
 
 BuildArch:      noarch
@@ -68,6 +67,8 @@ chmod -x %{buildroot}%{_datadir}/applications/flowblade.desktop \
   %{buildroot}%{_datadir}/mime/packages/flowblade.xml \
   %{buildroot}%{_datadir}/mime/packages/flowblade
 
+
+desktop-file-validate %{buildroot}%{_datadir}/applications/flowblade.desktop
 
 %find_lang Flowblade %{name}.lang
 
