@@ -58,6 +58,7 @@ mv %{buildroot}/usr/lib/mime/packages/flowblade \
   %{buildroot}%{_datadir}/mime/packages/
 
 chmod +x %{buildroot}%{py_puresitedir}/Flowblade/launch/flowbladebatch \
+  %{buildroot}%{py_puresitedir}/Flowblade/launch/flowbladesinglerender \
   %{buildroot}%{py_puresitedir}/Flowblade/launch/flowblademedialinker \
   %{buildroot}%{_bindir}/flowblade
 
@@ -65,13 +66,12 @@ chmod -x %{buildroot}%{_datadir}/applications/flowblade.desktop \
   %{buildroot}%{_datadir}/mime/packages/flowblade.xml \
   %{buildroot}%{_datadir}/mime/packages/flowblade
 
+cp -rf help %{buildroot}%{py_puresitedir}/Flowblade/res/
 
-desktop-file-validate %{buildroot}%{_datadir}/applications/flowblade.desktop
-
-%find_lang Flowblade %{name}.lang
-
+%find_lang %{name}
 
 %files -f %{name}.lang
+%doc AUTHORS COPYING copyrights README README.md
 %{_bindir}/flowblade
 %{_datadir}/applications/flowblade.desktop
 %{_mandir}/man1/flowblade.1*
