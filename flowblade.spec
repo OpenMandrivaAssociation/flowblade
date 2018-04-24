@@ -7,7 +7,7 @@ Group:          Video
 Url:            https://github.com/jliljebl/flowblade/
 Source0:        flowblade-1.16.tar.gz
 BuildRequires:  desktop-file-utils
-BuildRequires:  python3-devel
+BuildRequires:  python-devel
 BuildRequires:  python-setuptools
 Requires:       pkgconfig(dbus-python)
 Requires:       ffmpeg
@@ -44,22 +44,22 @@ sed -i 's|%{_datadir}/pyshared|%{py_puresitedir}|' flowblade
 sed -i "s|respaths.LOCALE_PATH|'%{_datadir}/locale'|g" Flowblade/translations.py
 
 %build
-python setup.py build
+python2 setup.py build
 
 %install
-python setup.py install --prefix=%{_prefix} --root=%{buildroot}
+python2 setup.py install --prefix=%{_prefix} --root=%{buildroot}
 
 mkdir -p %{buildroot}%{_datadir}/locale
-mv %{buildroot}%{py_puresitedir}/Flowblade/locale/*  %{buildroot}%{_datadir}/locale
+mv %{buildroot}%{py2_puresitedir}/Flowblade/locale/*  %{buildroot}%{_datadir}/locale
 find %{buildroot} -type f -name "*.po*" -delete -print
 
 mkdir -p %{buildroot}%{_datadir}/mime/packages
 mv %{buildroot}/usr/lib/mime/packages/flowblade \
   %{buildroot}%{_datadir}/mime/packages/
 
-chmod +x %{buildroot}%{py_puresitedir}/Flowblade/launch/flowbladebatch \
-  %{buildroot}%{py_puresitedir}/Flowblade/launch/flowbladesinglerender \
-  %{buildroot}%{py_puresitedir}/Flowblade/launch/flowblademedialinker \
+chmod +x %{buildroot}%{py2_puresitedir}/Flowblade/launch/flowbladebatch \
+  %{buildroot}%{py2_puresitedir}/Flowblade/launch/flowbladesinglerender \
+  %{buildroot}%{py2_puresitedir}/Flowblade/launch/flowblademedialinker \
   %{buildroot}%{_bindir}/flowblade
 
 chmod -x %{buildroot}%{_datadir}/applications/flowblade.desktop \
@@ -76,6 +76,6 @@ chmod -x %{buildroot}%{_datadir}/applications/flowblade.desktop \
 %{_datadir}/applications/flowblade.desktop
 %{_mandir}/man1/flowblade.1*
 %{_datadir}/pixmaps/flowblade.png
-%{py_puresitedir}/Flowblade
-%{py_puresitedir}/flowblade-*.egg-info
+%{py2_puresitedir}/Flowblade
+%{py2_puresitedir}/flowblade-*.egg-info
 %{_datadir}/mime/packages/*
