@@ -66,7 +66,7 @@ chmod -x %{buildroot}%{_datadir}/applications/flowblade.desktop \
   %{buildroot}%{_datadir}/mime/packages/flowblade.xml \
   %{buildroot}%{_datadir}/mime/packages/flowblade
 
-cp -rf help %{buildroot}%{py_puresitedir}/Flowblade/res/
+#cp -rf help %{buildroot}%{py_puresitedir}/Flowblade/res/
 
 %find_lang %{name}
 
