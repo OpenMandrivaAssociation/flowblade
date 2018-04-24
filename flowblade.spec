@@ -40,7 +40,7 @@ Flowblade provides powerful tools to mix and filter video and audio.
 %prep
 %setup -q
 cp -rf flowblade-trunk/* ./
-sed -i 's|%{_datadir}/pyshared|%{py_puresitedir}|' flowblade
+sed -i 's|%{_datadir}/pyshared|%{py2_puresitedir}|' flowblade
 sed -i "s|respaths.LOCALE_PATH|'%{_datadir}/locale'|g" Flowblade/translations.py
 
 %build
@@ -66,7 +66,7 @@ chmod -x %{buildroot}%{_datadir}/applications/flowblade.desktop \
   %{buildroot}%{_datadir}/mime/packages/flowblade.xml \
   %{buildroot}%{_datadir}/mime/packages/flowblade
 
-#cp -rf help %{buildroot}%{py_puresitedir}/Flowblade/res/
+#cp -rf help %{buildroot}%{py2_puresitedir}/Flowblade/res/
 
 %find_lang %{name}
 
