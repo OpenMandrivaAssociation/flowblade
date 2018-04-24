@@ -39,7 +39,7 @@ Flowblade provides powerful tools to mix and filter video and audio.
 
 %prep
 %setup -q
-
+cd /flowblade-trunk
 sed -i 's|%{_datadir}/pyshared|%{py_puresitedir}|' flowblade
 sed -i "s|respaths.LOCALE_PATH|'%{_datadir}/locale'|g" Flowblade/translations.py
 
