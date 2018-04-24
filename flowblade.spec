@@ -5,7 +5,7 @@ Summary:        Multitrack non-linear video editor
 License:        GPLv3
 Group:          Video
 Url:            https://github.com/jliljebl/flowblade/
-Source0:        https://github.com/jliljebl/%{name}/archive/%{version}.tar.gz
+Source0:        flowblade-1.16.tar.gz
 BuildRequires:  desktop-file-utils
 BuildRequires:  python3-devel
 BuildRequires:  python-setuptools
