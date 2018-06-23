@@ -18,11 +18,10 @@ Requires:       pkgconfig(cairomm-1.0)
 Requires:       mlt
 Requires:       librsvg2
 Requires:       python2-cairo
-Requires:       gnome-python2
 Requires:       gnome-python2-gnomevfs
 Requires:       pygtk2
 Requires:       python2-imaging
-Requires:       python-mlt
+Requires:       python2-mlt
 Requires:       python-numpy
 Requires:       sox
 
