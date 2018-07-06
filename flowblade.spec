@@ -1,15 +1,13 @@
 Name:           flowblade
-Version:        0.18.0
+Version:        1.16
 Release:        2
 Summary:        Multitrack non-linear video editor
 License:        GPLv3
 Group:          Video
-Url:            https://code.google.com/p/flowblade/
-# Obtaining the source:
-# hg clone https://code.google.com/p/flowblade/
-Source0:         %{name}-%{version}.tar.gz
+Url:            https://github.com/jliljebl/flowblade/
+Source0:        flowblade-1.16.tar.gz
 BuildRequires:  desktop-file-utils
-BuildRequires:  python3-devel
+BuildRequires:  python-devel
 BuildRequires:  python-setuptools
 Requires:       pkgconfig(dbus-python)
 Requires:       ffmpeg
@@ -20,11 +18,9 @@ Requires:       pkgconfig(cairomm-1.0)
 Requires:       mlt
 Requires:       librsvg2
 Requires:       python2-cairo
-Requires:       gnome-python2
-Requires:       gnome-python2-gnomevfs
 Requires:       pygtk2
 Requires:       python2-imaging
-Requires:       python-mlt
+Requires:       python2-mlt
 Requires:       python-numpy
 Requires:       sox
 
@@ -41,43 +37,43 @@ Flowblade provides powerful tools to mix and filter video and audio.
 
 %prep
 %setup -q
-
-sed -i 's|%{_datadir}/pyshared|%{py_puresitedir}|' flowblade
+cp -rf flowblade-trunk/* ./
+sed -i 's|%{_datadir}/pyshared|%{py2_puresitedir}|' flowblade
 sed -i "s|respaths.LOCALE_PATH|'%{_datadir}/locale'|g" Flowblade/translations.py
 
 %build
-python setup.py build
+python2 setup.py build
 
 %install
-python setup.py install --prefix=%{_prefix} --root=%{buildroot}
+python2 setup.py install --prefix=%{_prefix} --root=%{buildroot}
 
 mkdir -p %{buildroot}%{_datadir}/locale
-mv %{buildroot}%{py_puresitedir}/Flowblade/locale/*  %{buildroot}%{_datadir}/locale
+mv %{buildroot}%{py2_puresitedir}/Flowblade/locale/*  %{buildroot}%{_datadir}/locale
 find %{buildroot} -type f -name "*.po*" -delete -print
 
 mkdir -p %{buildroot}%{_datadir}/mime/packages
 mv %{buildroot}/usr/lib/mime/packages/flowblade \
   %{buildroot}%{_datadir}/mime/packages/
 
-chmod +x %{buildroot}%{py_puresitedir}/Flowblade/launch/flowbladebatch \
-  %{buildroot}%{py_puresitedir}/Flowblade/launch/flowblademedialinker \
+chmod +x %{buildroot}%{py2_puresitedir}/Flowblade/launch/flowbladebatch \
+  %{buildroot}%{py2_puresitedir}/Flowblade/launch/flowbladesinglerender \
+  %{buildroot}%{py2_puresitedir}/Flowblade/launch/flowblademedialinker \
   %{buildroot}%{_bindir}/flowblade
 
 chmod -x %{buildroot}%{_datadir}/applications/flowblade.desktop \
   %{buildroot}%{_datadir}/mime/packages/flowblade.xml \
   %{buildroot}%{_datadir}/mime/packages/flowblade
 
+#cp -rf help %{buildroot}%{py2_puresitedir}/Flowblade/res/
 
-desktop-file-validate %{buildroot}%{_datadir}/applications/flowblade.desktop
-
-%find_lang Flowblade %{name}.lang
-
+%find_lang %{name}
 
 %files -f %{name}.lang
+%doc AUTHORS COPYING copyrights README README.md
 %{_bindir}/flowblade
 %{_datadir}/applications/flowblade.desktop
 %{_mandir}/man1/flowblade.1*
 %{_datadir}/pixmaps/flowblade.png
-%{py_puresitedir}/Flowblade
-%{py_puresitedir}/flowblade-*.egg-info
+%{py2_puresitedir}/Flowblade
+%{py2_puresitedir}/flowblade-*.egg-info
 %{_datadir}/mime/packages/*
