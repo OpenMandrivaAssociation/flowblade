@@ -7,7 +7,7 @@ Group:          Video
 Url:            https://github.com/jliljebl/flowblade/
 Source0:        flowblade-2.0.tar.gz
 BuildRequires:  desktop-file-utils
-BuildRequires:  python-devel
+BuildRequires:  python2-devel
 BuildRequires:  python-setuptools
 Requires:       pkgconfig(dbus-python)
 Requires:       ffmpeg
