@@ -60,9 +60,9 @@ chmod +x %{buildroot}%{py2_puresitedir}/Flowblade/launch/flowbladebatch \
   %{buildroot}%{py2_puresitedir}/Flowblade/launch/flowblademedialinker \
   %{buildroot}%{_bindir}/flowblade
 
-chmod -x %{buildroot}%{_datadir}/applications/flowblade.desktop \
-  %{buildroot}%{_datadir}/mime/packages/flowblade.xml \
-  %{buildroot}%{_datadir}/mime/packages/flowblade
+#chmod -x %{buildroot}%{_datadir}/applications/flowblade.desktop \
+#  %{buildroot}%{_datadir}/mime/packages/flowblade.xml \
+#  %{buildroot}%{_datadir}/mime/packages/flowblade
 
 #cp -rf help %{buildroot}%{py2_puresitedir}/Flowblade/res/
 
