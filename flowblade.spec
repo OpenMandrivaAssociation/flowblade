@@ -1,13 +1,13 @@
 Name:           flowblade
-Version:        1.16
-Release:        2
+Version:        2.0
+Release:        1
 Summary:        Multitrack non-linear video editor
 License:        GPLv3
 Group:          Video
 Url:            https://github.com/jliljebl/flowblade/
-Source0:        flowblade-1.16.tar.gz
+Source0:        flowblade-2.0.tar.gz
 BuildRequires:  desktop-file-utils
-BuildRequires:  python-devel
+BuildRequires:  python2-devel
 BuildRequires:  python-setuptools
 Requires:       pkgconfig(dbus-python)
 Requires:       ffmpeg
@@ -60,9 +60,9 @@ chmod +x %{buildroot}%{py2_puresitedir}/Flowblade/launch/flowbladebatch \
   %{buildroot}%{py2_puresitedir}/Flowblade/launch/flowblademedialinker \
   %{buildroot}%{_bindir}/flowblade
 
-chmod -x %{buildroot}%{_datadir}/applications/flowblade.desktop \
-  %{buildroot}%{_datadir}/mime/packages/flowblade.xml \
-  %{buildroot}%{_datadir}/mime/packages/flowblade
+chmod -x %{buildroot}%{_datadir}/applications/io.github.jliljebl.Flowblade.desktop \
+ # %{buildroot}%{_datadir}/mime/packages/flowblade.xml \
+ # %{buildroot}%{_datadir}/mime/packages/flowblade
 
 #cp -rf help %{buildroot}%{py2_puresitedir}/Flowblade/res/
 
@@ -71,9 +71,10 @@ chmod -x %{buildroot}%{_datadir}/applications/flowblade.desktop \
 %files -f %{name}.lang
 %doc AUTHORS COPYING copyrights README README.md
 %{_bindir}/flowblade
-%{_datadir}/applications/flowblade.desktop
+%{_datadir}/applications/io.github.jliljebl.Flowblade.desktop
 %{_mandir}/man1/flowblade.1*
-%{_datadir}/pixmaps/flowblade.png
+%{_datadir}/icons/hicolor/128x128/apps/io.github.jliljebl.Flowblade.png
 %{py2_puresitedir}/Flowblade
 %{py2_puresitedir}/flowblade-*.egg-info
 %{_datadir}/mime/packages/*
+%{_datadir}/appdata/io.github.jliljebl.Flowblade.appdata.xml
