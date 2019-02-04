@@ -73,7 +73,7 @@ chmod -x %{buildroot}%{_datadir}/applications/io.github.jliljebl.Flowblade.deskt
 %{_bindir}/flowblade
 %{_datadir}/applications/io.github.jliljebl.Flowblade.desktop
 %{_mandir}/man1/flowblade.1*
-%{_icondir}/hicolor/*/apps/io.github.jliljebl.Flowblade.png
+%{_datadir}/icons/hicolor/128x128/apps/io.github.jliljebl.Flowblade.png
 %{py2_puresitedir}/Flowblade
 %{py2_puresitedir}/flowblade-*.egg-info
 %{_datadir}/mime/packages/*
