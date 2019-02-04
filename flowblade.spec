@@ -71,7 +71,7 @@ chmod +x %{buildroot}%{py2_puresitedir}/Flowblade/launch/flowbladebatch \
 %files -f %{name}.lang
 %doc AUTHORS COPYING copyrights README README.md
 %{_bindir}/flowblade
-%{_datadir/applications/Flowblade.desktop
+%{_datadir}/applications/Flowblade.desktop
 %{_mandir}/man1/flowblade.1*
 %{_icondir}/hicolor/*/apps/flowblade.png
 %{py2_puresitedir}/Flowblade
