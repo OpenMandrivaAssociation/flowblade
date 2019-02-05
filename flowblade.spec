@@ -8,8 +8,9 @@ Url:            https://github.com/jliljebl/flowblade/
 Source0:        flowblade-2.0.tar.gz
 BuildRequires:  desktop-file-utils
 BuildRequires:  python2-devel
-BuildRequires:  python-setuptools
-Requires:       pkgconfig(dbus-python)
+BuildRequires:  python2-setuptools
+BuildRequirea:  pkgconfig(dbus-python)
+Requires:       python2-dbus
 Requires:       ffmpeg
 Requires:       frei0r-plugins >= 1.4
 Requires:       ladspa
@@ -21,7 +22,7 @@ Requires:       python2-cairo
 Requires:       pygtk2
 Requires:       python2-imaging
 Requires:       python2-mlt
-Requires:       python-numpy
+Requires:       python2-numpy
 Requires:       sox
 
 BuildArch:      noarch
