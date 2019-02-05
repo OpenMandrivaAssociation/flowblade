@@ -9,7 +9,7 @@ Source0:        flowblade-2.0.tar.gz
 BuildRequires:  desktop-file-utils
 BuildRequires:  python2-devel
 BuildRequires:  python2-setuptools
-BuildRequirea:  pkgconfig(dbus-python)
+BuildRequires:  pkgconfig(dbus-python)
 Requires:       python2-dbus
 Requires:       ffmpeg
 Requires:       frei0r-plugins >= 1.4
