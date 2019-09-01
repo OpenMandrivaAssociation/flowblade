@@ -1,11 +1,11 @@
 Name:           flowblade
-Version:        2.0
+Version:        2.2
 Release:        1
 Summary:        Multitrack non-linear video editor
 License:        GPLv3
 Group:          Video
 Url:            https://github.com/jliljebl/flowblade/
-Source0:        flowblade-2.0.tar.gz
+Source0:        https://github.com/jliljebl/flowblade/archive/v%{version}/%{name}-%{version}.tar.gz
 BuildRequires:  desktop-file-utils
 BuildRequires:  python2-devel
 BuildRequires:  python2-setuptools
