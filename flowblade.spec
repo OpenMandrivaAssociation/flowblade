@@ -10,6 +10,8 @@ BuildRequires:  desktop-file-utils
 BuildRequires:  python2-devel
 BuildRequires:  python2-setuptools
 BuildRequires:  pkgconfig(dbus-python)
+BuildRequires:  gmic-devel
+BuildRequires:  gmic
 Requires:       python2-dbus
 Requires:       ffmpeg
 Requires:       frei0r-plugins >= 1.4
@@ -24,6 +26,7 @@ Requires:       python2-imaging
 Requires:       python2-mlt
 Requires:       python2-numpy
 Requires:       sox
+Recommends:     gmic
 
 BuildArch:      noarch
 
