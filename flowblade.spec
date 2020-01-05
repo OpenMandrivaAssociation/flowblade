@@ -6,6 +6,7 @@ License:        GPLv3
 Group:          Video
 Url:            https://github.com/jliljebl/flowblade/
 Source0:        https://github.com/jliljebl/flowblade/archive/v%{version}/%{name}-%{version}.tar.gz
+Patch0:         flowblade-sys-path.patch
 BuildRequires:  desktop-file-utils
 BuildRequires:  python-devel
 BuildRequires:  python-setuptools
@@ -41,6 +42,7 @@ Flowblade provides powerful tools to mix and filter video and audio.
 
 %prep
 %setup -q
+%autopatch -p1
 cp -rf flowblade-trunk/* ./
 sed -i 's|%{_datadir}/pyshared|%{py_puresitedir}|' flowblade
 sed -i "s|respaths.LOCALE_PATH|'%{_datadir}/locale'|g" Flowblade/translations.py
