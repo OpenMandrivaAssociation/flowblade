@@ -1,6 +1,6 @@
 Name:           flowblade
 Version:        2.4
-Release:        1
+Release:        2
 Summary:        Multitrack non-linear video editor
 License:        GPLv3
 Group:          Video
@@ -12,7 +12,7 @@ BuildRequires:  python-setuptools
 BuildRequires:  pkgconfig(dbus-python)
 BuildRequires:  gmic-devel
 BuildRequires:  gmic
-Requires:       python2-dbus
+Requires:       python-dbus
 Requires:       ffmpeg
 Requires:       frei0r-plugins >= 1.4
 Requires:       ladspa
@@ -44,6 +44,10 @@ Flowblade provides powerful tools to mix and filter video and audio.
 cp -rf flowblade-trunk/* ./
 sed -i 's|%{_datadir}/pyshared|%{py_puresitedir}|' flowblade
 sed -i "s|respaths.LOCALE_PATH|'%{_datadir}/locale'|g" Flowblade/translations.py
+
+# fix wrong-script-interpreter errors
+sed -i -e 's|#!/usr/bin/env python|#!/usr/bin/python3|g' flowblade-trunk/Flowblade/launch/*
+sed -i -e 's|#!/usr/bin/env python|#!/usr/bin/python3|g' flowblade-trunk/Flowblade/tools/clapperless.py
 
 %build
 python setup.py build
