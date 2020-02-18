@@ -1,18 +1,18 @@
 Name:           flowblade
-Version:        2.4
+Version:        2.4.0.1
 Release:        1
 Summary:        Multitrack non-linear video editor
 License:        GPLv3
 Group:          Video
 Url:            https://github.com/jliljebl/flowblade/
-Source0:        https://github.com/jliljebl/flowblade/archive/v%{version}/%{name}-%{version}.tar.gz
+Source0:        https://github.com/jliljebl/flowblade/archive/v%{version}/%{name}-%{version}-fix_release.tar.gz
 BuildRequires:  desktop-file-utils
 BuildRequires:  python-devel
 BuildRequires:  python-setuptools
 BuildRequires:  pkgconfig(dbus-python)
 BuildRequires:  gmic-devel
 BuildRequires:  gmic
-Requires:       python2-dbus
+Requires:       python-dbus
 Requires:       ffmpeg
 Requires:       frei0r-plugins >= 1.4
 Requires:       ladspa
@@ -21,7 +21,8 @@ Requires:       pkgconfig(cairomm-1.0)
 Requires:       mlt
 Requires:       librsvg2
 Requires:       python-cairo
-Requires:       pygtk2
+Requires:       python-gi-cairo
+Requires:       python3dist(pygobject)
 Requires:       python-imaging
 Requires:       python-mlt
 Requires:       python-numpy
@@ -40,7 +41,7 @@ in and out points of clips, or by cutting and deleting parts of clips.
 Flowblade provides powerful tools to mix and filter video and audio.
 
 %prep
-%setup -q
+%setup -qn %{name}-%{version}-fix_release
 cp -rf flowblade-trunk/* ./
 sed -i 's|%{_datadir}/pyshared|%{py_puresitedir}|' flowblade
 sed -i "s|respaths.LOCALE_PATH|'%{_datadir}/locale'|g" Flowblade/translations.py
