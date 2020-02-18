@@ -12,7 +12,7 @@ BuildRequires:  python-setuptools
 BuildRequires:  pkgconfig(dbus-python)
 BuildRequires:  gmic-devel
 BuildRequires:  gmic
-Requires:       python2-dbus
+Requires:       python-dbus
 Requires:       ffmpeg
 Requires:       frei0r-plugins >= 1.4
 Requires:       ladspa
@@ -21,7 +21,8 @@ Requires:       pkgconfig(cairomm-1.0)
 Requires:       mlt
 Requires:       librsvg2
 Requires:       python-cairo
-Requires:       pygtk2
+Requires:       python-gi-cairo
+Requires:       python3dist(pygobject)
 Requires:       python-imaging
 Requires:       python-mlt
 Requires:       python-numpy
