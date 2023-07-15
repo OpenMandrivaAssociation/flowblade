@@ -82,4 +82,4 @@ chmod -x %{buildroot}%{_datadir}/applications/io.github.jliljebl.Flowblade.deskt
 %{py_puresitedir}/Flowblade
 %{py_puresitedir}/flowblade-*.egg-info
 %{_datadir}/mime/packages/*
-%{_datadir}/appdata/io.github.jliljebl.Flowblade.appdata.xml
+#{_datadir}/appdata/io.github.jliljebl.Flowblade.appdata.xml
