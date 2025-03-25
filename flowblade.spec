@@ -1,5 +1,5 @@
 Name:           flowblade
-Version:        2.16.3
+Version:        2.20
 Release:        1
 Summary:        Multitrack non-linear video editor
 License:        GPLv3
@@ -7,27 +7,29 @@ Group:          Video
 Url:            https://github.com/jliljebl/flowblade/
 Source0:        https://github.com/jliljebl/flowblade/archive/v%{version}/%{name}-%{version}.tar.gz
 BuildRequires:  desktop-file-utils
-BuildRequires:  python-devel
+BuildRequires:  pkgconfig(python3)
 BuildRequires:  python-setuptools
 BuildRequires:  pkgconfig(dbus-python)
 BuildRequires:  gmic-devel
 BuildRequires:  gmic
-Requires:       python-dbus
-Requires:       ffmpeg
-Requires:       frei0r-plugins >= 1.4
-Requires:       ladspa
-Requires:       swh-plugins
-Requires:       pkgconfig(cairomm-1.0)
-Requires:       mlt
-Requires:       librsvg2
-Requires:       python-cairo
-Requires:       python-gi-cairo
-Requires:       python3dist(pygobject)
-Requires:       python-imaging
-Requires:       python-mlt
-Requires:       python-numpy
-Requires:       sox
-Recommends:     gmic
+Requires: gtk+3
+Requires: python-dbus
+Requires: ffmpeg
+Requires: frei0r-plugins >= 1.4
+Requires: ladspa
+Requires: swh-plugins
+#Requires: pkgconfig(cairomm-1.0)
+Requires: mlt
+Requires: librsvg2
+Requires: python-cairo
+Requires: python-gi-cairo
+Requires: python3dist(pygobject)
+Requires: python-imaging
+Requires: python-mlt
+Requires: python-numpy
+Requires: python-libusb1
+Requires: sox
+Recommends: gmic
 
 BuildArch:      noarch
 
@@ -41,12 +43,14 @@ in and out points of clips, or by cutting and deleting parts of clips.
 Flowblade provides powerful tools to mix and filter video and audio.
 
 %prep
-%setup -qn %{name}-%{version}
+%autosetup -n %{name}-%{version} -p1
 cp -rf flowblade-trunk/* ./
 sed -i 's|%{_datadir}/pyshared|%{py_puresitedir}|' flowblade
 sed -i "s|respaths.LOCALE_PATH|'%{_datadir}/locale'|g" Flowblade/translations.py
 
 %build
+export CC=gcc
+export CXX=g++
 python setup.py build
 
 %install
