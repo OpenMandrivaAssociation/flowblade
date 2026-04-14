@@ -1,6 +1,6 @@
 Name:           flowblade
-Version:        2.22.1.1
-Release:        2
+Version:        2.24.1
+Release:        1
 Summary:        Multitrack non-linear video editor
 License:        GPLv3
 Group:          Video
